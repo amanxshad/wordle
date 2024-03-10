@@ -11,13 +11,28 @@ window.onload = function() {
   initialize();
 }
 
+
+
 // dark-light mode
 const body = document.querySelector("body");
+const h1 = document.querySelector("h1");
+const h2 = document.querySelector("h2");
+const tile = document.getElementsByClassName("tile");
+const keyboard = document.getElementsByClassName("keyboard-row");
 const toggle = document.getElementById("toggle");
 toggle.addEventListener("click", function() {
   toggle.classList.toggle("active");
   body.classList.toggle("active");
+  h1.classList.toggle("active");
+  h2.classList.toggle("active");
+  for (let i = 0; i < keyboard.length; i++) {
+    keyboard[i].classList.toggle("active");
+  }
+  for (let l = 0; l < tile.length; l++) {
+    tile[l].classList.toggle("active");
+  }
 });
+
 
 
 //create game board
@@ -34,6 +49,8 @@ function initialize() {
     }
   }
 
+
+
   //listen for keypress
   document.addEventListener("keyup", (e) => {
     if (gameover) return;
@@ -49,49 +66,93 @@ function initialize() {
     }
 
     //backspace functionality  
-    else if(e.code == "Backspace" ){
-      if(col > 0 && col <= width){
-        col -=1;
+    else if (e.code == "Backspace") {
+      if (col > 0 && col <= width) {
+        col -= 1;
       }
       let currTile = document.getElementById(row.toString() + "-" + col.toString());
       currTile.innerText = "";
     }
 
     //Enter functionality  
-    else if(e.code == "Enter" && col == width){
+    else if (e.code == "Enter" && col == width) {
       update();
       row += 1;
       col = 0;
     }
 
     //gameover
-    if(!gameover && row == height){
+    if (!gameover && row == height) {
       gameover = true;
-      document.getElementById("answer").innertText = word;
+      document.getElementById("answer").innerText = word;
     }
-    
   })
+
+
+
+
+  // listen Onscreen keyborad click
+  const keys = document.querySelectorAll('.keyboard-row button');
+
+  keys.forEach(key => {
+    key.addEventListener('click', function(e) {
+
+      let buttonClicked = e.target.dataset.key;
+      console.log(buttonClicked);
+
+      //Del button functionality
+      if (buttonClicked == "del") {
+        if (col > 0 && col <= width) {
+          col -= 1;
+        }
+        let currTile = document.getElementById(row.toString() + "-" + col.toString());
+        currTile.innerText = "";
+      }
+
+      //Enter button functionality  
+      else if (buttonClicked == "enter" && col == width) {
+        update();
+        row += 1;
+        col = 0;
+      }
+
+      //display clicked alphabets onto span
+      else if (col < width && buttonClicked != "enter") {
+        let currTile = document.getElementById(row.toString() + "-" + col.toString());
+        if (currTile.innerText == "") {
+          currTile.innerText = e.target.innerText;
+          col += 1;
+        }
+      }
+
+    });
+  });
+
 }
 
-function update(){
-  let correct=0;
-  for(let c=0; c<width; c++){
+
+
+
+//accept the guess and show its correctness
+function update() {
+  let correct = 0;
+  for (let c = 0; c < width; c++) {
     let currTile = document.getElementById(row.toString() + "-" + c.toString());
     let letter = currTile.innerText;
 
     //is letter in correct position?
-    if(word[c] == letter){
+    if (word[c] == letter) {
       currTile.classList.add("correct");
       correct += 1;
     }//is letter in word?
-    else if(word.includes(letter)){
+    else if (word.includes(letter)) {
       currTile.classList.add("present");
     }// not in the word?
-    else{
+    else {
       currTile.classList.add("absent");
     }
 
-    if(correct == width){
+    if (correct == width) {
       gameover = true;
     }
   }
