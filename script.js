@@ -16,15 +16,15 @@ window.onload = function() {
 // dark-light mode
 const body = document.querySelector("body");
 const h1 = document.querySelector("h1");
-const h2 = document.querySelector("h2");
 const tile = document.getElementsByClassName("tile");
 const keyboard = document.getElementsByClassName("keyboard-row");
 const toggle = document.getElementById("toggle");
+const answer = document.getElementById("answer");
 toggle.addEventListener("click", function() {
   toggle.classList.toggle("active");
   body.classList.toggle("active");
   h1.classList.toggle("active");
-  h2.classList.toggle("active");
+  answer.classList.toggle("active");
   for (let i = 0; i < keyboard.length; i++) {
     keyboard[i].classList.toggle("active");
   }
@@ -81,10 +81,12 @@ function initialize() {
       col = 0;
     }
 
-    //gameover
+    //gameover without correct guess
     if (!gameover && row == height) {
       gameover = true;
-      document.getElementById("answer").innerText = word;
+      const ans = document.getElementById("answer");
+      ans.innerText = word;
+      ans.classList.add("display");
     }
   })
 
@@ -152,6 +154,23 @@ function update() {
       currTile.classList.add("absent");
     }
 
+    
+// chaange the color of Onscreen keyboard
+const keys = document.querySelectorAll('.keyboard-row button');
+keys.forEach(key => {
+    if (key.innerText == letter && key.innerText === word[c]) {
+        key.classList.add("green");
+    } 
+    else if (word.includes(key.innerText) && key.innerText == letter) {
+        key.classList.add("yellow");
+    } 
+    else if(key.innerText === letter){
+        key.classList.add("grey");
+    }
+
+});
+
+    //gameover with correct guess
     if (correct == width) {
       gameover = true;
     }

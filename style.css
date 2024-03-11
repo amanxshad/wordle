@@ -7,6 +7,7 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
   background: #f8f8f8;
+
 }
 
 body.active{
@@ -37,23 +38,24 @@ h2{
 
 #board {
   width: 350px;
-  height: 420px;
+  height: 384px;
   margin: 0 auto;
   margin-top: 3px;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .tile {
   /*box*/
-  border: 2px solid lightgrey;
-  width: 60px;
-  height: 60px;
+  border: 1.6px solid lightgrey;
+  width: 55px;
+  height: 55px;
   margin: 2.5px;
 
   /*text*/
   color: black;
-  font-size: 36px;
+  font-size: 33px;
   font-weight: bold;
   display: flex;
   justify-content: center;
@@ -80,7 +82,7 @@ h2{
 
 
 .tile.active{
-  border: 2px solid #808384;
+  border: 1.6px solid #808384;
   color: #fff;
 }
 
@@ -154,6 +156,7 @@ h2.active{
 
 #keyboard-container{
   height: 200px;
+  margin-top: 83px;
 }
 
 #keyboard-rows{
@@ -185,6 +188,30 @@ h2.active{
   color: white;
 }
 
+.keyboard-row button.yellow{
+  background-color: #c9b458;
+  color: white;
+  border-color: white;
+}
+
+.keyboard-row button.green{
+  background-color: #6aaa64;
+  color: white;
+  border-color: white;
+}
+
+.keyboard-row button.grey{
+  background-color: #787C7E;
+  color: white;
+  border-color: white;
+}
+
+.keyboard-row.active button.grey{
+  background-color:#3a3a3c;
+  color: white;
+  border-color: white;
+}
+
 .keyboard-row button.wide-button{
   flex-grow: 1.5;
 }
@@ -192,3 +219,45 @@ h2.active{
 .spacer-half{
   flex-grow: 0.5;
 }
+
+#answer{
+  background-color: gainsboro;
+  color: #787C7E;
+  font-size: 17px;
+  height: fit-content;
+  width: fit-content;
+  margin: -282px auto;
+  border-radius: 8px;
+  position: relative;
+}
+
+#answer.display{
+  padding: 7px 16px;
+}
+
+#answer.active{
+  background-color: #808384;
+  color: #fff;
+}
+
+
+@keyframes fade{
+  0%{opacity: 1; font-size:106%}
+  1%{opacity: 0; font-size:100%}
+  100%{opacity: 0; font-size:100%}
+}
+
+.fade-out{
+  background-color: gainsboro;
+  color: #787C7E;
+  font-size: 17px;
+  height: fit-content;
+  width: fit-content;
+  margin: -34.4px auto;
+  border-radius: 8px;
+  position: relative;
+  padding: 7px 16px;
+  animation: fade 1800s;
+  animation-iteration-count: infinite;
+}
+
