@@ -7,6 +7,7 @@ This project is a functional clone of the popular online game Wordle, developed 
 
 ### How to Play
 
+
 Each guess must be a valid 5-letter word. The color of the tiles will change to show how close your guess was to the word:
 
 • green letter would mean it is in correct spot
@@ -14,7 +15,6 @@ Each guess must be a valid 5-letter word. The color of the tiles will change to 
 • yellow letter would mean it is present in word but not in correct spot
 
 • grey letter would mean it is not present in word
-
 ## Screenshots
 
 ![App Screenshot1](./images/ss1.png)
@@ -44,46 +44,35 @@ Contributions are always welcome! Whether you want to improve the documentation,
 
 Here’s how you can contribute:
 
-
-- **Fork the Repository:**
+- Fork the Repository:
 
    Click on the "Fork" button at the top right corner of this page to create your own copy of the repository.
 
-- **Clone Your Fork:**
+- Clone Your Fork:
 
-
-   Clone the repository to your local machine:
      ```bash
      git clone https://github.com/your-username/your-repo-name.git
      ```
 
+- Create a Branch:
 
-- **Create a Branch:**
-
-
-   Create a new branch for your changes:
      ```bash
      git checkout -b your-branch-name
      ```
 
-
-- **Make Changes:**
+- Make Changes:
 
    Make your changes or add new features. Be sure to write clear and concise commit messages.
 
-- **Commit and Push:**
+- Commit and Push to fork:
 
-
-   Commit your changes and push them to your fork:
      ```bash
      git add .
      git commit -m "Describe your changes here"
      git push origin your-branch-name
      ```
 
-
-- **Open a Pull Request:**
-
+- Open a Pull Request:
 
    Go to the original repository and open a pull request. Provide a clear description of the changes and why they should be merged.
 
