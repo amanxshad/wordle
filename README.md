@@ -14,7 +14,8 @@ Each guess must be a valid 5-letter word. The color of the tiles will change to 
 • yellow letter would mean it is present in word but not in correct spot
 
 • grey letter would mean it is not present in word
-### Screenshots
+
+## Screenshots
 
 ![App Screenshot1](./images/ss1.png)
 ![App Screenshot2](./images/ss2.png)
@@ -43,29 +44,35 @@ Contributions are always welcome! Whether you want to improve the documentation,
 
 Here’s how you can contribute:
 
-1. **Fork the Repository:**
+
+- **Fork the Repository:**
 
    Click on the "Fork" button at the top right corner of this page to create your own copy of the repository.
 
-2. **Clone Your Fork:**
+- **Clone Your Fork:**
+
 
    Clone the repository to your local machine:
      ```bash
      git clone https://github.com/your-username/your-repo-name.git
      ```
 
-3. **Create a Branch:**
+
+- **Create a Branch:**
+
 
    Create a new branch for your changes:
      ```bash
      git checkout -b your-branch-name
      ```
 
-4. **Make Changes:**
+
+- **Make Changes:**
 
    Make your changes or add new features. Be sure to write clear and concise commit messages.
 
-5. **Commit and Push:**
+- **Commit and Push:**
+
 
    Commit your changes and push them to your fork:
      ```bash
@@ -74,7 +81,9 @@ Here’s how you can contribute:
      git push origin your-branch-name
      ```
 
-6. **Open a Pull Request:**
+
+- **Open a Pull Request:**
+
 
    Go to the original repository and open a pull request. Provide a clear description of the changes and why they should be merged.
 
