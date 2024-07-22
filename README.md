@@ -85,20 +85,7 @@ Happy coding!
 
 
 
-## Deployment
 
-**If you're testing locally, you can use a simple HTTP server:**
-
-
-Install http-server globally 
-```bash
-  npm install -g http-server
-```
-
-Use http-server on project directory
-```bash
-  npx http-server
-```
 ---
 
 © 2024 amanxshad. 
